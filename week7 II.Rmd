@@ -1,0 +1,208 @@
+
+
+```{r}
+# atomic vector
+c("John"=177, "Mary"=160, "Bill"=170) -> cvector
+c(John=177, Mary=160, Bill=170)
+# list
+list("John"=177, "Mary"=160, "Bill"=170) -> lvector
+```
+
+To retrieve 177
+```{r}
+# by position
+cvector[[1]]
+lvector[[1]]
+
+# by element name 
+cvector[["John"]]
+lvector[["John"]]
+```
+
+```{r}
+lvector$"John"
+lvector$John
+
+# cvector$John
+```
+
+```{r}
+sample_data <- list(
+  "observation1"=list(54, "male", "north", 100), 
+  "observation2"=list(32, "female", "south", 25), 
+  "observation3"=list(28, "female", "east", NA), 
+  "observation4"=list(20, "male", "east", 77)
+)
+# list vector with 4 elements
+sample_data[["observation4"]]
+
+sample_data$"observation4"
+
+sample_data$`observation4`
+
+sample_data$observation4
+```
+
+## 3.1 List
+
+```{r}
+list(
+  "milk", "apple", "pork"
+)
+c(
+  "milk", "apple", "pork"
+)[[3]]
+```
+
+
+```{r}
+list(
+  "Compulsory"=list(
+    "Principle of Economics",
+    "Calculus",
+    "Accounting"
+  ),
+  "Selective"=list(
+    "Philosophy",
+    "Chinese Literature"
+  )
+) -> mycourses
+```
+
+  * nested list
+
+```{r}
+c(
+  c(
+    "Principle of Economics",
+    "Calculus",
+    "Accounting"
+  ),
+  c(
+    "Philosophy",
+    "Chinese Literature"
+  )
+)
+```
+
+
+```{r}
+list(
+  "name"=list("Gianandrea Noseda conducts Schumann and Mendelssohn — With Mikhail Pletnev"),
+  "time"=list(
+    "2021, Oct, 01"
+  ),
+  "program"=list(
+    "Robert Schumann, Piano Concerto in A Minor, Op. 54",
+    "Felix Mendelssohn-Bartholdy, Symphony No. 4 in A Major, Op. 90, “Italian”"
+  )
+) -> concert
+```
+
+
+```{r}
+concerts_of_the_month <- list(
+  list(
+  "name"=c("Gianandrea Noseda conducts Schumann and Mendelssohn — With Mikhail Pletnev"),
+  "time"=c(
+    "2021, Oct, 01"
+  ),
+  "program"=c(
+    "Robert Schumann, Piano Concerto in A Minor, Op. 54",
+    "Felix Mendelssohn-Bartholdy, Symphony No. 4 in A Major, Op. 90, “Italian”"
+  )
+),
+  list(
+    "name"=...,
+    "time"=...,
+    "program"=...
+    
+  )
+  
+  
+  
+)
+```
+
+
+```{r}
+browseURL("https://data.gov.tw/dataset/6013")
+```
+
+
+/Users/martinl/Downloads/concert.json
+
+```{r}
+jsonlite::fromJSON("/Users/martinl/Downloads/concert.json") -> concertData
+```
+
+```{r}
+jsonlite::fromJSON("/Users/martinl/Downloads/concert.json", simplifyDataFrame = FALSE) -> concerts_obo
+```
+
+```{r}
+c("爛泥")
+"爛泥"
+```
+
+
+```{r}
+concerts_of_the_month <- list(
+  list(
+    "主題" = "爛泥",
+    "主辦單位" = "環音有限公司",
+    "場次"=list(
+      list(
+        "時間"="2022/05/28 10:00:00",
+        "地點"="高雄十鼓橋頭文創園區"
+      ),
+      list(
+        "時間"="2022/05/29 10:00:00",
+        "地點"="高雄十鼓橋頭文創園區"
+      )
+    )
+    
+  )
+  
+  
+)
+```
+
+```{r}
+# Observation by observation
+concerts_obo <-
+  jsonlite::fromJSON("https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=17", simplifyDataFrame = F)
+
+# Feature by feature
+concerts_fbf <-
+  jsonlite::fromJSON("https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=17", simplifyDataFrame = T)
+```
+
+```{r}
+concerts_obo[[1]] # observation-by-observation
+```
+
+```{r}
+concerts_fbf[[1]] # feature-by-feature
+```
+
+
+```{r}
+list(
+  "品項"="波隆那牛肉紙包麵【單點】",
+  "價格"= 179,
+  "菜色內容"="波隆那肉醬X起司X牛肉丸，濃郁好香醇 | 內含 : 筆管麵、波隆那肉醬(含牛肉-巴拉圭)、牛肉丸(巴拉圭)、青花菜、小番茄、莫札瑞拉起司"
+)
+```
+
+
+
+
+
+
+
+
+
+
+
+

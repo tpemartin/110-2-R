@@ -1,0 +1,198 @@
+
+```{r}
+c("John", "Mary")[[1]]
+c("John", "Mary")[[2]]
+```
+
+```{r}
+list("John", 178, TRUE)[[1]]
+list("John", 178, TRUE)[[2]]
+list("John", 178, TRUE)[[3]]
+```
+
+```{r}
+list("John",42, list("Mary", 35))[[3]]
+```
+
+```{r}
+length(
+  list("John",42, list("Mary", 35))
+)
+```
+
+  * `len()`
+
+```{r}
+personName <- c("John", "Mary")
+```
+
+name call
+```{r}
+personName
+```
+
+```{r}
+c("John", "Mary")
+```
+
+```{r}
+"personName"
+```
+
+
+```{r}
+bigList <- list("John",42, list("Mary", 35))
+#nested list
+bigList[[3]][[2]]
+```
+
+```{r}
+list("John",42, list("Mary", 35))[[3]][[2]]
+```
+
+```{r}
+(list("John",42, list("Mary", 35))[[3]])[[2]]
+(list("Mary", 35))[[2]]
+35
+```
+
+
+```{r}
+list("Mary", 35)[[2]] # produce
+35
+
+list("John",42, list("Mary", 35))[[3]] # produce
+list("Mary", 35)
+```
+
+##
+
+```{r}
+typeof(c("a", "b"))
+typeof(c("c", "d"))
+c(c("a", "b"), c("c", "d"))[[4]] # to get "d"
+c("a", "b", "c", "d")[[4]]
+```
+
+```{r}
+list(c("a", "b"), c("c", "d"))[[2]][[2]] # to get "d"
+```
+
+```{r}
+typeof(list("a", 1))
+c(list("a", 1), list("c", 2))
+list("a", 1, "c", 2)
+```
+
+```{r}
+c(list("a", 1), list("c", list(2)))
+list("a", 1, "c", 2)
+list("a", 1, "c", list(2))
+```
+
+```{r}
+unlist(
+  list(list("a", 1), list("c", list(2)))
+)
+```
+
+
+```{r}
+list(
+list(54, "male", "north", 100), # (1)
+list(32, "female", "south", 25), # (2)
+list(28, "female", "east", NA), # (3)
+list(20, "male", "east", 77) # (4))
+)
+```
+
+  * NA not available
+```{r}
+c(
+list(54, "male", "north", 100), # (1)
+list(32, "female", "south", 25), # (2)
+list(28, "female", "east"), # (3)
+list(20, "male", "east", 77) # (4))
+)
+```
+
+```{r}
+
+```
+
+
+##
+
+```{r}
+c(177, 160, 170)
+list(177, 160, 170)
+```
+
+
+```{r}
+aName <- list(T, 183)
+.anotherName <- list("a", 88) # invisible
+```
+
+```{r}
+.anotherName
+```
+
+
+```{r}
+`.a very very unsual name` <- 3
+```
+
+```{r}
+`.a very very unsual name`
+```
+
+```{r}
+特殊名字 <- 5
+```
+
+```{r}
+`特殊名字`
+```
+
+```{r}
+# atomic vector
+c("John"=177, "Mary"=160, "Bill"=170)[["Bill"]]
+# list
+list("John"=177, "Mary"=160, "Bill"=170)
+```
+
+```{r}
+c("光緒", "雍正", "雍正")
+c(1, 5, 8)
+```
+
+```{r}
+c(1+?, 5+?, 8+?)
+c(1+1876, 5+1722, 8+1722)
+
+
+c("順治"=1643,  "雍正"=1722, "光緒"=1876)[["光緒"]]+1
+c("順治"=1643,  "雍正"=1722, "光緒"=1876)[["雍正"]]+5
+```
+
+```{r}
+parameter = c("alpha"=2, "beta"=3)
+```
+
+$$ f(x, y)=x^\alpha\times y^\beta$$
+```{r}
+parameter[["alpha"]]
+parameter[["beta"]]
+```
+
+
+```{r}
+# atomic vector
+c("John"=177, "Mary"=160, "Bill"=170)
+Bill="Bill"
+c(John=177, Mary=160, Bill=170)[["Bill"]]
+# list
+list("John"=177, "Mary"=160, "Bill"=170)
+```
+

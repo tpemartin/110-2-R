@@ -1,0 +1,63 @@
+---
+title: "R Notebook"
+output: html_notebook
+editor_options: 
+  chunk_output_type: inline
+---
+
+```{r}
+"Hello"
+'Hello'
+```
+```{r}
+typeof("Hello")
+```
+
+
+```{r}
+3.1412
+3
+3L
+```
+
+```{r}
+typeof(3.1412)
+typeof(3L)
+```
+
+```{r}
+TRUE
+FALSE
+T
+F
+typeof(T)
+```
+
+c : concatenate
+
+```{r}
+c("Hello", "How are you")
+c("Hello", 2)
+list("Hello", 2)
+```
+```{r}
+2+3
+"2" +3
+```
+```{r}
+c(2, 3, 5) + c(1, 2, 3)
+```
+
+```{r}
+typeof(c(2, 3, 5))
+typeof(c("John", "Mary"))
+
+typeof(list("John", 178, TRUE))
+```
+
+  * 
+
+```{r}
+
+```
+

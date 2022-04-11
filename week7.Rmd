@@ -1,0 +1,208 @@
+
+## element names
+
+```{r}
+c("number1"=1, "number2"=88, 295)[["number2"]]
+list("John", 1, "single"=FALSE)[[1]]
+```
+
+```{r}
+vec0 <- c("a", "b", "c")
+vec1 <- c("number1"=1, "number2"=88, 295)
+vec2 <- list("John", 1, "single"=FALSE)
+```
+
+```{r}
+LETTERS
+letters
+```
+
+```{r}
+LETTERS[[1]]
+LETTERS[[17]]
+```
+
+```{r}
+names(vec1)
+names(vec2)
+```
+
+  * `names()`: `names` is a function. `names()` is function call.
+  
+```{r}
+names(vec2) <- c("name", "number of children", "single")
+names(vec2)
+
+vec2[["name"]]
+```
+
+***
+
+```{r}
+cvector <- c("a", "b", "c")
+lvector <- list("a", "b", "c")
+```
+
+```{r}
+cvector
+lvector
+```
+
+## `$` 
+
+  `$` is only for LIST
+  
+```{r}
+
+```
+
+```{r}
+sample_data2=c(
+  "對象1"=list("年齡"=54, gender="male", "north", 100), 
+  "observation2"=list(age=32, "female", "south", 25), 
+  "observation3"=list(28, "female", "east", NA), 
+  "observation4"=list(20, "male", "east", 77)
+)
+```
+
+```{r}
+sample_data2 = list(
+  "對象1.年齡"=54, "對象1.gender"="male", "north", 100, 32, "female", ....., 77
+)
+```
+
+```{r}
+sample_data2
+```
+
+
+```{r}
+sample_data <- list(
+  "對象1"=list("年齡"=54, gender="male", "north", 100), 
+  "observation2"=list(age=32, "female", "south", 25), 
+  "observation3"=list(28, "female", "east", NA), 
+  "observation4"=c(age="20", "male", "east", "77")
+)
+
+sample_data$observation4[["age"]]
+
+sample_data[["對象1"]]$`年齡`
+
+sample_data$observation2$age
+sample_data$observation2$age
+sample_data$`對象1`$`年齡`
+
+```
+
+
+```{r}
+sample_data$observation4
+
+sample_data$"observation4"
+
+sample_data$`observation4`
+
+sample_data$observation4
+```
+
+
+  * `$` `[[]]` are for retrieving only ONE element value.
+  
+  * But `$` must use **element name**, not position, to retrieve. And it only works on **list**.
+  
+
+```{r}
+list(
+  "milk", "apple", "pork"
+)
+```
+
+
+```{r}
+list(
+  "Principle of Economics",
+  "Calculus",
+  "Accounting"
+)
+```
+
+```{r}
+list(
+  "Philosophy",
+  "Chinese Literature"
+)
+```
+
+
+```{r}
+list(
+  "Compulsory"=list(
+    "Principle of Economics",
+    "Calculus",
+    "Accounting"
+  ),
+  "Selective"=list(
+    "Philosophy",
+    "Chinese Literature"
+  )
+) -> myCourses
+```
+
+  * nested list
+
+```{r}
+list("Gianandrea Noseda conducts Schumann and Mendelssohn — With Mikhail Pletnev")
+```
+
+Gianandrea Noseda conducts Schumann and Mendelssohn — With Mikhail Pletnev
+
+  - conductor: Gianandrea Noseda
+  - program composers: 
+     - Schumann
+     - Mendelssohn
+  - pianist: Mikhail Pletnev
+  
+```{r}
+list(
+"conductor"=list("Gianandrea Noseda"),
+"composers"=list("Schumann", "Mendelssohn"),
+"pianist"=list("Mikhail Pletnev")
+)
+```
+
+```{r}
+list(
+  "name"=list(
+    "conductor"=list("Gianandrea Noseda"),
+    "composers"=list("Schumann", "Mendelssohn"),
+    "pianist"=list("Mikhail Pletnev")
+    ),
+  "time"=list("2021, Oct, 01"),
+  "program"=list(
+    "Robert Schumann, Piano Concerto in A Minor, Op. 54",
+    "Felix Mendelssohn-Bartholdy, Symphony No. 4 in A Major, Op. 90, “Italian”"
+  )
+) -> oneConcert
+```
+
+```{r}
+browseURL("https://data.gov.tw/dataset/6013")
+```
+
+https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=17
+
+```{r}
+jsonlite::fromJSON("https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=17") -> concertData
+```
+
+```{r}
+# Observation by observation
+concerts_obo <-
+  jsonlite::fromJSON("https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=17", simplifyDataFrame = F)
+
+# Feature by feature
+concerts_fbf <-
+  jsonlite::fromJSON("https://cloud.culture.tw/frontsite/trans/SearchShowAction.do?method=doFindTypeJ&category=17", simplifyDataFrame = T)
+```
+
+

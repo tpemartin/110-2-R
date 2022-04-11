@@ -1,0 +1,314 @@
+
+one element value
+
+```{r}
+[[]] # atomic vector or list
+```
+
+  * 位置
+  
+  * 元素名稱
+
+```{r}
+$ # list
+```
+
+multiple element values
+
+```{r}
+[]
+```
+
+  * 多個位置： [c(1, 2, 5)]
+
+  * 多個元素名稱: [c("name1", "name2", "name3")]
+
+
+```{r}
+# "John", TRUE
+list("John", 178, TRUE)[c(1, 3)]
+```
+相當於
+```{r}
+list("John", TRUE)
+```
+
+
+
+```{r}
+list(name="John", height=178, married=TRUE)[c("name", "married")]
+```
+
+```{r}
+list(name="John", height=178, married=TRUE)[c(1, 3)]
+```
+相當於
+```{r}
+list(name="John", married=TRUE)
+```
+
+
+```{r}
+list("John", 178, TRUE)
+```
+
+##
+
+```{r}
+JohnsFamily <- list(
+  name="John",
+  age=35,
+  spouse=list(
+    name = "Marry",
+    age = 32
+  ),
+  children=list(
+    list(
+      name = "Bill",
+      age = 5
+    ),
+    list(
+      name = "Jane",
+      age = 3
+    )
+  )
+)
+
+
+
+```
+
+
+```{r}
+length(JohnsFamily)
+
+names(JohnsFamily)
+```
+
+```{r}
+JohnsFamily
+length
+```
+
+```{r}
+Sys.Date() # show the date today
+```
+
+```{r}
+JohnsFamily[c(1, 2)]
+JohnsFamily[c("name", "age")]
+```
+
+```{r}
+JohnsFamily[["age"]] # or JohnsFamily[[2]]
+```
+相當於
+```{r}
+c("John")
+```
+
+
+```{r}
+JohnsFamily["age"] # or JohnsFamily[2]
+```
+相當於
+```{r}
+list(
+  age=35
+)
+```
+
+
+```{r}
+c("John"=98, "Mary"=90, "Ken"=72)[["John"]]
+```
+相當於
+```{r}
+c(98)
+98
+```
+
+```{r}
+c("John"=98, "Mary"=90, "Ken"=72)["John"]
+```
+相當於
+```{r}
+c("John"=98)
+```
+
+
+***
+John's age - 15 = ?
+```{r}
+JohnsFamily[["age"]] - 15
+c(35) -15
+```
+
+```{r}
+JohnsFamily["age"] -15
+list( age= 35) - 15
+```
+
+
+```{r}
+list(age=35) -15 
+```
+
+```{r}
+c(age=35) - 15
+```
+
+****
+
+```{r}
+sample(
+  c("順治", "康熙", "雍正"),
+  10,
+  TRUE
+  ) -> randomYears
+dput(randomYears)
+```
+
+
+```{r}
+list(
+  yearTitle = c("順治", "康熙", "順治", "順治", "雍正", "康熙", 
+"雍正", "順治", "順治", "順治"),
+  yearNumber = c(4, 1, 3, 3, 2, 2, 1, 4, 4, 2)
+) -> data0
+```
+
+```{r}
+data0$yearTitle
+
+data0$yearNumber
+```
+
+
+```{r}
+addHowManyYears <- c(
+  "順治"=1643,
+  "康熙"=1661,
+  "雍正"=1722
+)
+```
+
+```{r}
+addHowManyYears[c("順治", "康熙", "順治", "順治", "雍正", "康熙", 
+"雍正", "順治", "順治", "順治")] +
+  data0$yearNumber
+```
+
+```{r}
+sample(
+  c(1,2,3,4),
+  10,
+  T
+) -> yearnumbers
+dput(yearnumbers)
+```
+
+
+```{r}
+JohnsFamilyCopy <- JohnsFamily
+```
+
+```{r}
+# 取出錯誤的值，再去更正它
+JohnsFamilyCopy[["name"]] <- "Watson"
+JohnsFamilyCopy[["name"]]
+```
+
+
+```{r}
+JohnsFamilyCopy[[1]]
+JohnsFamilyCopy$name
+```
+
+
+```{r}
+JohnsFamilyCopy[[1]] <- "Watson" 
+JohnsFamilyCopy[[1]]
+```
+
+
+```{r}
+JohnsFamilyCopy <- JohnsFamily
+```
+
+```{r}
+JohnsFamilyCopy[["name"]]
+```
+
+```{r}
+JohnsFamilyCopy$children[[1]]$age <- 6
+```
+
+```{r}
+JohnsFamilyCopy$children[[1]]$age
+```
+
+```{r}
+threeKids <- c("Bill"=5, "Jane"=3, "Tom"=2)
+```
+
+```{r}
+threeKidsCopy <- threeKids
+```
+
+```{r}
+threeKidsCopy[[1]] <-6
+threeKidsCopy[[3]] <-3
+threeKidsCopy
+```
+
+```{r}
+threeKidsCopy <- threeKids
+threeKidsCopy
+```
+
+```{r}
+threeKidsCopy[c(1, 3)] <- 
+  c(Bill=6, Tim=3)
+```
+
+```{r}
+threeKidsCopy
+```
+
+```{r}
+names(threeKidsCopy)
+names(threeKidsCopy)[[3]] <- "Tim"
+names(threeKidsCopy)
+threeKidsCopy
+```
+
+```{r}
+threeKidsCopy <- threeKids
+elementNames <- names(threeKidsCopy)
+elementNames[[3]] <- "Tim"
+elementNames
+names(threeKidsCopy)
+```
+
+
+```{r}
+elementNames <- c("Bill", "Jane", "Tom")
+elementNames[[3]] <- "Tim"
+elementNames
+```
+
+
+
+```{r}
+c(Bill=5, Tom=2)
+```
+
+
+
+
+
+
+
+
+  
