@@ -1,0 +1,99 @@
+
+```{r}
+"Mary"
+'Friday'
+```
+
+```{r}
+typeof("Mary")
+```
+
+He said, "Hello".
+
+```{r}
+'He said, "Hello".'
+"He said, \"Hello\"."
+```
+
+  * `\` escape
+
+```{r}
+2L # integer
+3.1412 # double (non-integer real number)
+2 # double
+```
+
+```{r}
+typeof(2L)
+typeof(2)
+```
+
+```{r}
+date()
+```
+
+  `date` is a function.
+  `zoomba`
+  `date()` is a function call.
+  `zoomba()`
+flag up - TRUE
+     down - FALSE
+```{r}
+TRUE
+FALSE
+T # for true
+F # for false
+```
+
+```{r}
+typeof(TRUE)
+typeof(F)
+```
+
+```{r}
+typeof(Hello)
+```
+
+
+True
+False
+
+true
+false
+
+```{r}
+c("John", "Male", 178)
+```
+
+```{r}
+c("John", "Male", "178")
+```
+
+  * Atomic vector
+
+```{r}
+"178"+2
+```
+
+```{r}
+list("John", 178, TRUE)
+```
+
+```{python}
+def a(x):
+  kdlskfds
+
+  sdf;lsdkf;sd
+  return value
+```
+
+  * list 
+
+```{r}
+as.numeric("178")
+```
+
+```{r}
+c(1, 3, 7) + c( 5, 10, 13)
+```
+
