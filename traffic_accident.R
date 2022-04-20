@@ -2,10 +2,9 @@ json <- jsonlite::fromJSON("https://data.moi.gov.tw/MoiOD/System/DownloadFile.as
 # json$result$records |> View()
 
 traffic <- json$result$records
-traffic |>
-  DT::datatable()
+
 traffic$發生時間 |>
-  stringr::str_split("年") |> #View()
+  stringr::str_split("年") |> 
   purrr::map_chr(
     ~{
       as.integer(.x[[1]])+1911 -> .year
