@@ -7,17 +7,47 @@ weather$dowload_data()
 
 
 whichStation = 5
-whichDateTimeRow = 6090
-whichDateRow = 254
+# whichDateTimeRow = 6090
+# whichDateRow = 254
 
 climateDataList <- vector("list", nrow(traffic))
-for(.x in 1:nrow(traffic)){
+# for(.x in 1:nrow(traffic)){
   .x = 1
   traffic[.x, ] -> trafficX
   
   # trafficX$經度 trafficX$緯度 ==> whichStation
-  trafficX ==> whichDateTimeRow
-  trafficX ==> whichDateRow
+  # trafficX ==> whichDateTimeRow
+  whichDateTimeRow = {
+    trafficX$發生時間 -> trafficTime # (1)
+    weather[["rawData"]][["cwbdata"]][["resources"]][["resource"]][["data"]][["surfaceObs"]][["location"]][["stationObsTimes"]][["stationObsTime"]][[whichStation]]$dataTime -> availableTimes # (2)
+    
+    trafficTime |> class()
+    availableTimes |> lubridate::ymd_hms() -> availableTimes
+    availableTimes |> class()
+    
+    # --Approach 1---
+    ## vectorizing language
+    allDistance = abs(availableTimes - trafficTime)
+    which.min(allDistance)
+    
+    # --Approach 2---
+    # smallestYdistance <- 10**5 
+    # whichDateTimeRow <- 0
+    # for(.y in seq_along(availableTimes)){
+    #   timeYdistance <- abs(availableTimes[[.y]] - trafficTime)
+    #   if(timeYdistance < smallestYdistance){
+    #     smallestYdistance <- timeYdistance
+    #     whichDateTimeRow <- .y
+    #   }
+    # }
+    # 
+    # whichDateTimeRow
+  }
+  # trafficX ==> whichDateRow
+  whichDateRow <- {
+    
+    
+  }
   
   weather[["rawData"]][["cwbdata"]][["resources"]][["resource"]][["data"]][["surfaceObs"]][["location"]][["station"]][whichStation,]
   
@@ -28,7 +58,7 @@ for(.x in 1:nrow(traffic)){
   weather[["rawData"]][["cwbdata"]][["resources"]][["resource"]][["data"]][["surfaceObs"]][["location"]][["stationObsStatistics"]][["temperature"]][["daily"]][[whichStation]][whichDateRow,2:4]->climatedata1$temperature
   
   climateDataList[[.x]] <- climatedata1
-}
+# }
 
 
 
