@@ -31,7 +31,7 @@ for(.x in seq_along(split_traffic)){
   data.frame(
     時段=names(split_traffic[.x]),
     時段車禍次數=sum(accidents_hourX),
-    時段車禍縣市數目=length(accidents_hourX),
+    時段車禍縣市數目=length(accidents_hourX[accidents_hourX!=0]),
     車禍次數=as.integer(accidents_hourX),
     縣市=names(accidents_hourX),
     時段名次=length(accidents_hourX)+1-rank(accidents_hourX, ties.method = "first") 
