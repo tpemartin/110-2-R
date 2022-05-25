@@ -3,8 +3,6 @@ download_traffic_data <- function(){
   # json$result$records |> View()
   
   traffic <- json$result$records
-  traffic |>
-    DT::datatable()
   traffic$發生時間 |>
     stringr::str_split("年") |> #View()
     purrr::map_chr(
